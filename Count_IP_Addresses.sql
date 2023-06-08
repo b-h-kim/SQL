@@ -1,4 +1,20 @@
-/*	Codewars (https://www.codewars.com/kata/526989a41034285187000de4)
+WITH ip_splited AS
+  (
+  SELECT  id
+          ,(SPLIT_PART(last, '.', 1)::INT - SPLIT_PART(first, '.', 1)::INT)*256^3 AS diff_1
+          ,(SPLIT_PART(last, '.', 2)::INT - SPLIT_PART(first, '.', 2)::INT)*256^2 AS diff_2
+          ,(SPLIT_PART(last, '.', 3)::INT - SPLIT_PART(first, '.', 3)::INT)*256^1 AS diff_3
+          ,SPLIT_PART(last, '.', 4)::INT - SPLIT_PART(first, '.', 4)::INT AS diff_4
+  FROM    ip_addresses
+  )
+
+SELECT  id
+        ,(diff_1 + diff_2 + diff_3 + diff_4)::INT AS ips_between 
+FROM    ip_splited;
+
+/*	
+**  Codewars (https://www.codewars.com/kata/526989a41034285187000de4)
+**
 **	DESCRIPTION:
 **	Given a database of first and last IPv4 addresses, calculate the number of addresses between them (including the first one, excluding the last one).
 **	
@@ -23,27 +39,8 @@
 **	* With input "10.0.0.0", "10.0.0.50"  => return   50 
 **	* With input "10.0.0.0", "10.0.1.0"   => return  256 
 **	* With input "20.0.0.10", "20.0.1.0"  => return  246
-*/
-
-/*
-**	ANSWEAR
-*/
-
-WITH ip_splited AS
-  (
-  SELECT  id
-          ,(SPLIT_PART(last, '.', 1)::INT - SPLIT_PART(first, '.', 1)::INT)*256^3 AS diff_1
-          ,(SPLIT_PART(last, '.', 2)::INT - SPLIT_PART(first, '.', 2)::INT)*256^2 AS diff_2
-          ,(SPLIT_PART(last, '.', 3)::INT - SPLIT_PART(first, '.', 3)::INT)*256^1 AS diff_3
-          ,SPLIT_PART(last, '.', 4)::INT - SPLIT_PART(first, '.', 4)::INT AS diff_4
-  FROM    ip_addresses
-  )
-
-SELECT  id
-        ,(diff_1 + diff_2 + diff_3 + diff_4)::INT AS ips_between 
-FROM    ip_splited;
-
-/*	I found postgreSQL has data-type for ip address 
+**
+**  I found postgreSQL has data-type for ip address 
 **
 **	SELECT	id, last::INET - first::INET AS ips_between
 **	FROM ip_addresses;
