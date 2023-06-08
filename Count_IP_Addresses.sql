@@ -40,5 +40,5 @@ WITH ip_splited AS
   )
 
 SELECT  id
-        ,(diff_1 + diff_2 + diff_3 + diff_4)::INT AS ips_between 
+        ,(diff_1 + diff_2 + diff_3 + diff_4)::BIGINT AS ips_between 
 FROM    ip_splited
