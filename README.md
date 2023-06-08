@@ -1,7 +1,5 @@
 # Purpose
 
-This repository serves as a record of my ongoing SQL practice and development of SQL skills.
+This repository serves as a record of my ongoing SQL practice and development of SQL skills. It contains SQL solutions for coding challenges sourced from platforms like Codewars and other practice resources.
 
-It contains SQL solutions for coding challenges sourced from platforms like Codewars and other practice resources.
-
-### I have separate repositories dedicated to individual SQL projects.
+### For a more comprehensive view of my SQL projects, I have created separate repositories dedicated to each project.
