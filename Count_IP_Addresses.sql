@@ -23,6 +23,10 @@ Examples
 * With input "10.0.0.0", "10.0.1.0"   => return  256 
 * With input "20.0.0.10", "20.0.1.0"  => return  246
 
+/***********/
+/* ANSWEAR */
+/***********/
+
 WITH ip_splited AS
   (
   SELECT  id
