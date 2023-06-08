@@ -41,4 +41,11 @@ WITH ip_splited AS
 
 SELECT  id
         ,(diff_1 + diff_2 + diff_3 + diff_4)::INT AS ips_between 
-FROM    ip_splited
+FROM    ip_splited;
+
+/* I found postgreSQL has data-type for ip address 
+**
+**	SELECT	id
+**					,last::INET - first::INET AS ips_between
+**	FROM ip_addresses;
+*/
