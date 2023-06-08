@@ -25,7 +25,9 @@
 		* With input "20.0.0.10", "20.0.1.0"  => return  246
 */
 
-/*  ANSWEAR   */
+/*
+		ANSWEAR
+*/
 
 WITH ip_splited AS
   (
